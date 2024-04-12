@@ -160,18 +160,19 @@ export default function ProductsFilter({ products, attributes }) {
       
      
       <div className=' m-5 rounded-xl'>
-        <div className='h-full w-full flex-col place-items-center  '>
-          <div className=' bg-slate-600 divide-doubled h-128px   mt-10 grid grid-cols-2  justify-center space-x-2 space-y-2  p-8 sm:grid-cols-2 xl:grid-cols-8 lg:mx-8'>
+      <div className='flex justify-center'>
+        <div className=' text-xs md:text-base bg-orange-200 flex justify-center divide-doubled h-128px w-2/3 xl:w-full rounded-lg  mt-10'>
+          <div className='     grid grid-cols-2   space-x-2 space-y-2  p-8 sm:grid-cols-2 xl:grid-cols-8 lg:mx-8'>
             
             <div className='flex justify-center pl-2 pt-2 '>
             
               <select
                 id='category'
-                className='transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-slate-500 ring-purple-900  border-2 border-red-600   w-full max-w-xs rounded-xl '
+                className='w-full uppercase hover:bg-orange-300  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-zinc-200 border-zinc-600  border-2 rounded-lg '
                 onChange={e => setCategory(e.target.value)}
                 value={category}
               >
-                <option className=' font-bold text-left ' value=''>
+                <option className=' font-bold text-left  ' value=''>
                   {' '}
                   Categorie{' '}
                 </option>
@@ -188,7 +189,7 @@ export default function ProductsFilter({ products, attributes }) {
             </div>
             <div className=' flex justify-center'>
               <select
-                className='transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 btn btn-outline btn-sm w-full max-w-xs rounded-xl  font-bold '
+                className=' w-full uppercase hover:bg-orange-300  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-zinc-200 border-zinc-600  border-2 rounded-lg '
                 id='price-range'
                 value={price}
                 onChange={handlePriceFilter}
@@ -235,20 +236,20 @@ export default function ProductsFilter({ products, attributes }) {
               className=' dark:text-gray-200 flex justify-center font-bold'></label>
               <select
                 id='country'
-                className='transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 btn btn-outline btn-sm w-full max-w-xs rounded-xl'
+                className='w-full uppercase hover:bg-orange-300  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-zinc-200 border-zinc-600  border-2 rounded-lg'
                 onChange={e => setCountry(e.target.value)}
                 value={country}
                 autoComplete='country'
 
                 
               >
-                <option className=' font-bold text-left ' value=''>
+                <option className=' font-bold text-left rounded-lg' value=''>
                   Pays
                 </option>
 
                 {sortedCountryValues.map(value => (
                   <option
-                    className='font-style: font-semibold italic text-left'
+                    className='font-style: font-semibold italic text-left rounded-lg'
                     key={value}
                     value={value}
                   >
@@ -264,7 +265,7 @@ export default function ProductsFilter({ products, attributes }) {
               className=' dark:text-gray-200 flex justify-center font-bold '></label>
               <select
                 id='locality'
-                className='transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 btn btn-outline btn-sm w-full max-w-xs rounded-xl '
+                className='w-full uppercase hover:bg-orange-300  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-zinc-200 border-zinc-600  border-2 rounded-lg '
                 onChange={e => setLocality(e.target.value)}
                 value={locality}
                 autoComplete='locality'
@@ -291,7 +292,7 @@ export default function ProductsFilter({ products, attributes }) {
               className=' dark:text-gray-200 flex justify-center font-bold '></label>
               <select
                 id='period'
-                className='transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 btn btn-outline btn-sm w-full max-w-xs rounded-xl '
+                className='w-full uppercase hover:bg-orange-300  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-zinc-200 border-zinc-600  border-2 rounded-lg '
                 onChange={e => setPeriod(e.target.value)}
                 value={period}
               >
@@ -316,7 +317,7 @@ export default function ProductsFilter({ products, attributes }) {
               className=' dark:text-gray-200 flex justify-center font-bold '></label>
               <select
                 id='stages'
-                className='transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 btn btn-outline btn-sm w-full max-w-xs rounded-xl '
+                className='w-full uppercase hover:bg-orange-300  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-zinc-200 border-zinc-600  border-2 rounded-lg '
                 onChange={e => setStages(e.target.value)}
                 value={stages}
               >
@@ -335,10 +336,10 @@ export default function ProductsFilter({ products, attributes }) {
                 ))}
               </select>
             </div>
-            <div className='col-span-2 flex justify-center font-bold  sm:col-span-2 xl:flex-none'>
+            <div className='col-span-2 flex justify-center font-bold  sm:col-span-2   sm:items-end'>
               <select
                 id='sorting'
-                className='transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 btn btn-outline btn-sm w-full max-w-xs rounded-xl '
+                className='w-full uppercase hover:bg-orange-300  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-zinc-200 border-zinc-600  border-2 rounded-lg '
                 value={sorting}
                 onChange={handleSortingChange}
               >
@@ -363,15 +364,18 @@ export default function ProductsFilter({ products, attributes }) {
               </select>
             </div>
           </div>
+          </div>
+          </div>
           <div className='  h-full w-full font-bold'>
             <div className='container '>
-              <div className=' flex justify-center pt-8 '>
+              <div className=' flex justify-center bg-orange-50 mt-8 '>
                 <Input
                   type='text'
                   name='searchBar'
                   id='searchBar'
                   placeholder="Search"
                   onChange={handleSearchTerm}
+                  className="bg-orange-50 placeholder:text-orange-900"
                 />
               </div>
 
@@ -382,8 +386,8 @@ export default function ProductsFilter({ products, attributes }) {
                     href={`/products/${product.slug}`}
                     className='group'
                   >
-                    <div className='transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-base-100 hover:bg-base-200'>
-                    <div className=' block aspect-h-1 aspect-w-1 relative w-full overflow-hidden rounded-xl '>
+                    <div className='transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 hover:bg-orange-50 hover:bg-base-200 rounded-lg'>
+                    <div className=' block aspect-h-1 aspect-w-1 relative w-full overflow-hidden rounded-lg '>
                     <Image
                   src={product.images[0].file.url}
                   alt={product.description}
@@ -392,13 +396,13 @@ export default function ProductsFilter({ products, attributes }) {
                   className='h-full w-full object-cover object-center transition-opacity group-hover:opacity-75'
                 />
                     </div>
-                    <h3 className='text-stone-700 mt-4 text-sm'>
+                    <h3 className='text-orange-800 mt-4 text-sm'>
                       {product.name}
                     </h3>
-                    <p className='text-stone-900 mt-1 text-lg font-medium'>
+                    <p className='text-orange-950 mt-1 text-lg font-medium'>
                       {formatCurrency({ amount: product.price })}
                     </p>
-                    <p className={`text-lg text-stone-700 flex justify-end pb-2 pr-2  ${product.stock_level >= 1 ? 'text-success-content' : 'text-error'}`}>
+                    <p className={`text-lg  flex justify-end pb-2 pr-2  ${product.stock_level >= 1 ? ' text-emerald-600' : ' text-red-600'}`}>
   {product.stock_level >= 1 ? `Stock: ${product.stock_level}` : "out of stock"}
 </p>
                     </div>
@@ -407,7 +411,6 @@ export default function ProductsFilter({ products, attributes }) {
               </div>
             </div>
           </div>
-        </div>
       </div>
       <Pagination
         productsPerPage={productsPerPage}

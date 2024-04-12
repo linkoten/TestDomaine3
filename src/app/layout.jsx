@@ -19,7 +19,7 @@ const RootLayout = ({ children }) => {
       lang='en'
       className={`${inter.className} h-full scroll-smooth antialiased`}
     >
-      <body className='flex h-full flex-col text-stone-700'>
+      <body className='flex h-full flex-col text-orange-900 bg-orange-100'>
           <Header />
           <main className='grow'>{children}</main>
           <Footer />

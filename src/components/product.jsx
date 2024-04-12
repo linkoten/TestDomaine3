@@ -29,6 +29,7 @@ const details = [
   }
 ]
 
+
 const Product = ({ product }) => {
   const router = useRouter()
   const { mutate } = useSWRConfig()
@@ -52,8 +53,7 @@ const Product = ({ product }) => {
   }
 
   return (
-    <section className='py-24'>
-      <div className='container'>
+      <div className='container border-b-2 border-zinc-800'>
         <div className='lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8'>
           {/* Image gallery */}
           <Tab.Group as='div' className='flex flex-col-reverse'>
@@ -219,7 +219,6 @@ const Product = ({ product }) => {
           </div>
         </div>
       </div>
-    </section>
   )
 }
 

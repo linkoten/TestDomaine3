@@ -1,6 +1,8 @@
 import { getAttributes, getProducts } from '@/lib/swell/products';
-import Products from '@/components/products';
 import Productsfilter from '@/components/products/productsfilter';
+
+export const revalidate = 60
+
 
 const Page = async () => {
     const { results: products } = await getProducts({ page: 1 });
@@ -9,7 +11,6 @@ const Page = async () => {
     return (
       <>
       <Productsfilter products={products} attributes={attributes}/>
-    <Products products={products} />;
     </>
     )
 };

@@ -16,7 +16,7 @@ const Header = () => {
 
   return (
     <>
-      <header className='z-10 py-10 text-stone-400'>
+      <header className='z-10 py-10 text-zinc-800 border-b-2 border-b-zinc-800'>
         <nav className='container flex items-center justify-between'>
           {/* Logo */}
           <div>

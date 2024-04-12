@@ -2,6 +2,8 @@ import Image from 'next/image'
 import heroImage from '@/public/images/hero.jpg'
 import Link from 'next/link'
 
+
+
 const Page = () => {
   return (
     <section className='h-full'>
