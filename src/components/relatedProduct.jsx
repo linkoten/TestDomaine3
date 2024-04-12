@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { formatCurrency } from '@/lib/utils/index';
 
-const relatedProduct = ({ product, products }) => {
+const RelatedProduct = ({ product, products }) => {
 
     console.log(product)
 
@@ -119,7 +119,7 @@ const relatedProduct = ({ product, products }) => {
     );
   };
   
-  export default relatedProduct;
+  export default RelatedProduct;
 
   
    
