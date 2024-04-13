@@ -14,6 +14,15 @@ import Image from 'next/image'
 import Pagination from './pagination';
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import { Slash } from "lucide-react"
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
 
 
 
@@ -157,18 +166,30 @@ export default function ProductsFilter({ products, attributes }) {
 
   return (
     <div>
-      
+      <Breadcrumb className='p-8'>
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/">Home</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator>
+      <Slash />
+    </BreadcrumbSeparator>
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/products">Products</BreadcrumbLink>
+    </BreadcrumbItem>
+  </BreadcrumbList>
+</Breadcrumb>
      
       <div className=' m-5 rounded-xl'>
       <div className='flex justify-center'>
-        <div className=' text-xs md:text-base bg-orange-200 flex justify-center divide-doubled h-128px w-2/3 xl:w-full rounded-lg  mt-10'>
-          <div className='     grid grid-cols-2   space-x-2 space-y-2  p-8 sm:grid-cols-2 xl:grid-cols-8 lg:mx-8'>
+        <div className=' text-xs md:text-base  flex justify-center divide-doubled h-128px w-2/3 xl:w-full rounded-lg  mt-10 '>
+          <div className='     grid grid-cols-2   space-x-2 space-y-2  sm:grid-cols-2 xl:grid-cols-8 lg:mx-8'>
             
             <div className='flex justify-center pl-2 pt-2 '>
             
               <select
                 id='category'
-                className='w-full uppercase hover:bg-orange-300  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-zinc-200 border-zinc-600  border-2 rounded-lg '
+                className='w-full uppercase  hover:brightness-75 hover:ring-blue-600 hover:ring-2  transition ease-in-out delay-150 hover:-tranzinc-y-1  duration-300 bg-zinc-200 border-zinc-600  border-2 rounded-lg '
                 onChange={e => setCategory(e.target.value)}
                 value={category}
               >
@@ -189,7 +210,7 @@ export default function ProductsFilter({ products, attributes }) {
             </div>
             <div className=' flex justify-center'>
               <select
-                className=' w-full uppercase hover:bg-orange-300  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-zinc-200 border-zinc-600  border-2 rounded-lg '
+                className=' w-full uppercase hover:bg-zinc-500 hover:ring-blue-600 hover:ring-2  transition ease-in-out delay-150 hover:-tranzinc-y-1  duration-300 bg-zinc-200 border-zinc-600  border-2 rounded-lg '
                 id='price-range'
                 value={price}
                 onChange={handlePriceFilter}
@@ -236,7 +257,7 @@ export default function ProductsFilter({ products, attributes }) {
               className=' dark:text-gray-200 flex justify-center font-bold'></label>
               <select
                 id='country'
-                className='w-full uppercase hover:bg-orange-300  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-zinc-200 border-zinc-600  border-2 rounded-lg'
+                className='w-full uppercase hover:bg-zinc-500 hover:ring-blue-600 hover:ring-2  transition ease-in-out delay-150 hover:-tranzinc-y-1  duration-300 bg-zinc-200 border-zinc-600  border-2 rounded-lg'
                 onChange={e => setCountry(e.target.value)}
                 value={country}
                 autoComplete='country'
@@ -265,7 +286,7 @@ export default function ProductsFilter({ products, attributes }) {
               className=' dark:text-gray-200 flex justify-center font-bold '></label>
               <select
                 id='locality'
-                className='w-full uppercase hover:bg-orange-300  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-zinc-200 border-zinc-600  border-2 rounded-lg '
+                className='w-full uppercase hover:bg-zinc-500 hover:ring-blue-600 hover:ring-2  transition ease-in-out delay-150 hover:-tranzinc-y-1  duration-300 bg-zinc-200 border-zinc-600  border-2 rounded-lg '
                 onChange={e => setLocality(e.target.value)}
                 value={locality}
                 autoComplete='locality'
@@ -292,7 +313,7 @@ export default function ProductsFilter({ products, attributes }) {
               className=' dark:text-gray-200 flex justify-center font-bold '></label>
               <select
                 id='period'
-                className='w-full uppercase hover:bg-orange-300  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-zinc-200 border-zinc-600  border-2 rounded-lg '
+                className='w-full uppercase hover:bg-zinc-500 hover:ring-blue-600 hover:ring-2  transition ease-in-out delay-150 hover:-tranzinc-y-1  duration-300 bg-zinc-200 border-zinc-600  border-2 rounded-lg '
                 onChange={e => setPeriod(e.target.value)}
                 value={period}
               >
@@ -317,7 +338,7 @@ export default function ProductsFilter({ products, attributes }) {
               className=' dark:text-gray-200 flex justify-center font-bold '></label>
               <select
                 id='stages'
-                className='w-full uppercase hover:bg-orange-300  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-zinc-200 border-zinc-600  border-2 rounded-lg '
+                className='w-full uppercase hover:bg-zinc-500 hover:ring-blue-600 hover:ring-2  transition ease-in-out delay-150 hover:-tranzinc-y-1  duration-300 bg-zinc-200 border-zinc-600  border-2 rounded-lg '
                 onChange={e => setStages(e.target.value)}
                 value={stages}
               >
@@ -339,7 +360,7 @@ export default function ProductsFilter({ products, attributes }) {
             <div className='col-span-2 flex justify-center font-bold  sm:col-span-2   sm:items-end'>
               <select
                 id='sorting'
-                className='w-full uppercase hover:bg-orange-300  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-zinc-200 border-zinc-600  border-2 rounded-lg '
+                className='w-full uppercase hover:bg-zinc-500 hover:ring-blue-600 hover:ring-2  transition ease-in-out delay-150 hover:-tranzinc-y-1  duration-300 bg-zinc-200 border-zinc-600  border-2 rounded-lg '
                 value={sorting}
                 onChange={handleSortingChange}
               >
@@ -368,25 +389,25 @@ export default function ProductsFilter({ products, attributes }) {
           </div>
           <div className='  h-full w-full font-bold'>
             <div className='container '>
-              <div className=' flex justify-center bg-orange-50 mt-8 '>
+              <div className=' flex justify-center bg-zinc-50 mt-8 '>
                 <Input
                   type='text'
                   name='searchBar'
                   id='searchBar'
                   placeholder="Search"
                   onChange={handleSearchTerm}
-                  className="bg-orange-50 placeholder:text-orange-900"
+                  className="bg-zinc-50 placeholder:text-zinc-900"
                 />
               </div>
 
-              <div className='   mt-10 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 xl:gap-x-8'>
+              <div className='   mt-10 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 xl:gap-x-8'>
                 {currentProducts.map(product => (
                   <Link
                     key={product.id}
                     href={`/products/${product.slug}`}
                     className='group'
                   >
-                    <div className='transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 hover:bg-orange-50 hover:bg-base-200 rounded-lg'>
+                    <div className='transition ease-in-out delay-150 hover:-tranzinc-y-1 hover:scale-110 duration-300 hover:bg-zinc-50 hover:ring-blue-600 hover:ring-2 rounded-lg'>
                     <div className=' block aspect-h-1 aspect-w-1 relative w-full overflow-hidden rounded-lg '>
                     <Image
                   src={product.images[0].file.url}
@@ -396,10 +417,10 @@ export default function ProductsFilter({ products, attributes }) {
                   className='h-full w-full object-cover object-center transition-opacity group-hover:opacity-75'
                 />
                     </div>
-                    <h3 className='text-orange-800 mt-4 text-sm'>
+                    <h3 className='text-zinc-800 mt-4 text-sm'>
                       {product.name}
                     </h3>
-                    <p className='text-orange-950 mt-1 text-lg font-medium'>
+                    <p className='text-zinc-950 mt-1 text-lg font-medium'>
                       {formatCurrency({ amount: product.price })}
                     </p>
                     <p className={`text-lg  flex justify-end pb-2 pr-2  ${product.stock_level >= 1 ? ' text-emerald-600' : ' text-red-600'}`}>

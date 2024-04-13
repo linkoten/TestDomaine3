@@ -13,6 +13,15 @@ import { MinusIcon, PlusIcon } from '@heroicons/react/24/outline'
 import { formatCurrency } from '@/lib/utils/index'
 import { addToCart } from '@/lib/swell/cart'
 import { Blinker } from '@/components/ui/loading'
+import { Slash } from "lucide-react"
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
 
 const details = [
   {
@@ -53,13 +62,35 @@ const Product = ({ product }) => {
   }
 
   return (
+      <>
+      <Breadcrumb className='p-8'>
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/">Home</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator>
+      <Slash />
+    </BreadcrumbSeparator>
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/products">Products</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator>
+      <Slash />
+    </BreadcrumbSeparator>
+    <BreadcrumbItem>
+      <BreadcrumbLink href={product.slug}>{product.name}</BreadcrumbLink>
+    </BreadcrumbItem>
+  </BreadcrumbList>
+</Breadcrumb>
+        <div className='py-18 '>
+
       <div className='container border-b-2 border-zinc-800'>
         <div className='lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8'>
           {/* Image gallery */}
           <Tab.Group as='div' className='flex flex-col-reverse'>
             {/* Image selector */}
             <div className='mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none'>
-              <Tab.List className='grid grid-cols-4 gap-6'>
+              <Tab.List className='grid grid-cols-4 gap-6 pb-8'>
                 {product.images.map(image => (
                   <Tab
                     key={image.id}
@@ -71,19 +102,19 @@ const Product = ({ product }) => {
                           {' '}
                           {image?.file?.metadata}{' '}
                         </span>
-                        <span className='absolute inset-0 overflow-hidden rounded-md'>
+                        <span className='absolute inset-0 overflow-hidden rounded-md '>
                           <Image
                             alt=''
                             height={400}
                   width={400}
                             src={image?.file?.url}
-                            className='h-full w-full object-cover object-center'
+                            className='h-full w-full object-cover object-center '
                           />
                         </span>
                         <span
                           className={clsx(
                             selected ? 'ring-sky-500' : 'ring-transparent',
-                            'pointer-events-none absolute inset-0 rounded-md ring-2 ring-offset-2'
+                            'pointer-events-none absolute inset-0 rounded-md ring-2 ring-offset-2 '
                           )}
                           aria-hidden='true'
                         />
@@ -219,6 +250,10 @@ const Product = ({ product }) => {
           </div>
         </div>
       </div>
+      </div>
+
+      </> 
+      
   )
 }
 

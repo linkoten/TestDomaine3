@@ -1,7 +1,7 @@
 export const formatCurrency = ({
     amount,
-    local = 'en-US',
-    currency = 'USD',
+    local = 'fr-FR',
+    currency = 'EUR',
     decimalPlaces = 2
   }) => {
     const formatter = new Intl.NumberFormat(local, {

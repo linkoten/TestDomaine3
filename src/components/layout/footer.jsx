@@ -1,12 +1,12 @@
 const Footer = () => {
     return (
-      <footer className='z-10 py-10 text-stone-400'>
+      <footer className='z-10 py-10 text-stone-800 bg-zinc-200'>
         <div className='container'>
-          <h5 className='text-lg'>CAFE CO.</h5>
-          <p className='mt-4 text-sm text-stone-500'>
-            &copy; {new Date().getFullYear()} Cafe Co.
+          <h5 className='text-lg'>Paleolitho</h5>
+          <p className='mt-4 text-sm text-stone-900'>
+            &copy; {new Date().getFullYear()} Paleolitho
           </p>
-          <div className='text-sm text-stone-400'>
+          <div className='text-sm text-stone-800'>
             Developed by{' '}
             <a
               className='text-sky-600'
@@ -14,7 +14,7 @@ const Footer = () => {
               rel='noreferrer'
               target='_blank'
             >
-              HB
+              Francois Catto
             </a>{' '}
             using{' '}
             <a

@@ -16,7 +16,7 @@ const Header = () => {
 
   return (
     <>
-      <header className='z-10 py-10 text-zinc-800 border-b-2 border-b-zinc-800'>
+      <header className='z-10 py-10 text-zinc-800 border-b-2 border-b-zinc-800 bg-zinc-200'>
         <nav className='container flex items-center justify-between'>
           {/* Logo */}
           <div>
@@ -24,7 +24,7 @@ const Header = () => {
               href='/'
               className='text-2xl font-bold uppercase tracking-widest'
             >
-              CAFE
+              Paleolitho
             </Link>
           </div>
 

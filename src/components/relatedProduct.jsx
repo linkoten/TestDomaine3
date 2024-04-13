@@ -48,7 +48,7 @@ const RelatedProduct = ({ product, products }) => {
       {upsellProducts.length > 0 && (
         <>
         <h3 className=" font-bold text-2xl">Up-sells</h3>
-        <div className="grid grid-cols-4 gap-4 px-4 bg-orange-200 py-4">
+        <div className="grid grid-cols-4 gap-4 px-4  py-4">
       
              {upsellProducts.map(product => (
             <Link
@@ -56,7 +56,7 @@ const RelatedProduct = ({ product, products }) => {
               href={`/products/${product.slug}`}
               className='group'
             >
-              <div className='aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-orange-200 xl:aspect-w-7 xl:aspect-h-8'>
+              <div className='aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg  xl:aspect-w-7 xl:aspect-h-8'>
                 <Image
                   src={product.images[0].file.url}
                   alt={product.description}
@@ -78,7 +78,7 @@ const RelatedProduct = ({ product, products }) => {
         {crosssellProducts.length > 0 && (
         <>
         <h3 className=" font-bold text-2xl">Cross-sells</h3>
-        <div className="grid grid-cols-4 gap-4 px-4 bg-orange-200 py-8">
+        <div className="grid grid-cols-4 gap-4 px-4  py-8">
       
              {crosssellProducts.map((product, index) => (
             <Link
@@ -87,7 +87,7 @@ const RelatedProduct = ({ product, products }) => {
               className='group'
 
             >
-              <div className='aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-orange-200 '>
+              <div className='aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg  '>
                 <Image
                   src={product.images[0].file.url}
                   alt={product.description}

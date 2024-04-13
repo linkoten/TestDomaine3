@@ -10,11 +10,12 @@ const Page = async ({ params }) => {
   const products = await getProducts({ page: 1 })
 
   return( 
-  <div className='py-24 '>
+  <>
+
   <Product product={product} />
   <RelatedProduct product={product} products={products} />
 
-  </div>
+  </>
   )
 }
 
