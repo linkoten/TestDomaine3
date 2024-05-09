@@ -400,7 +400,7 @@ export default function ProductsFilter({ products, attributes }) {
                 />
               </div>
 
-              <div className='   mt-10 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 xl:gap-x-8'>
+              <div className='   mt-10 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 xl:gap-x-8'>
                 {currentProducts.map(product => (
                   <Link
                     key={product.id}
@@ -408,12 +408,13 @@ export default function ProductsFilter({ products, attributes }) {
                     className='group'
                   >
                     <div className='transition ease-in-out delay-150 hover:-tranzinc-y-1 hover:scale-110 duration-300 hover:bg-zinc-50 hover:ring-blue-600 hover:ring-2 rounded-lg'>
-                    <div className=' block aspect-h-1 aspect-w-1 relative w-full overflow-hidden rounded-lg '>
+                    <div className=' block  relative w-full overflow-hidden rounded-lg h-40 '>
                     <Image
                   src={product.images[0].file.url}
                   alt={product.description}
-                  width={300}
-                  height={300}
+                  fill
+                                            sizes='(min-width: 1024px) 50vw, 100vw'
+
                   className='h-full w-full object-cover object-center transition-opacity group-hover:opacity-75'
                 />
                     </div>

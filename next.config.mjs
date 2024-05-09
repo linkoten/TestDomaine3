@@ -1,8 +1,13 @@
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-        domains: ['cdn.schema.io', 'cdn.swell.store', 'media.graphassets.com'],
-      },
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: 'cdn.schema.io' },
+      { protocol: 'https', hostname: 'cdn.swell.store' },
+      { protocol: 'https', hostname: 'media.graphassets.com' },
+    ],
+  },
 };
 
 export default nextConfig;

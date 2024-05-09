@@ -44,13 +44,13 @@ const Header = () => {
           {/* Shopping cart */}
           <div className=' flex items-center  justify-between gap-1 lg:gap-6  '>
             <button
-              className=' transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 flex items-center lg:gap-x-2 pl-2 '
+              className=' transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 flex items-center lg:gap-x-1 pl-2 '
               onClick={() => setCartSliderIsOpen(open => !open)}
             >
               <ShoppingCartIcon className='h-4 w-4 sm:h-7 sm:w-7  ' />
 
               {cart?.item_quantity ? (
-                <span className='flex h-2 w-2 items-center justify-center rounded bg-sky-600 text-2xs font-medium text-white lg:text-xs '>
+                <span className='flex  items-center justify-center rounded bg-sky-600 text-2xs font-medium text-white lg:text-xs '>
                   {cart?.item_quantity}
                 </span>
               ) : null}
