@@ -68,27 +68,27 @@ const getPost = async (params) => {
 
 const renderers = {
     h1: ({ children }) => (
-        <h1 className=' my-2 mb-4 flex items-center justify-center text-3xl font-bold text-third-color  dark:text-sixth-color md:text-4xl lg:text-5xl'>
+        <h1 className=' my-2 mb-4 flex items-center justify-center text-3xl font-bold text-blue-900   md:text-4xl lg:text-5xl'>
             {children}
         </h1>
     ),
     h2: ({ children }) => (
-        <h2 className=' text-gray-900 my-4 mb-4 flex items-center justify-center text-2xl font-bold text-third-color dark:text-sixth-color md:text-3xl lg:text-4xl'>
+        <h2 className='  my-4 mb-4 flex items-center justify-center text-2xl font-bold text-cyan-900  md:text-3xl lg:text-4xl'>
             {children}
         </h2>
     ),
     h3: ({ children }) => (
-        <h3 className=' text-gray-900 my-4 mb-4 flex items-center justify-center text-xl font-bold text-third-color dark:text-sixth-color md:text-3xl lg:text-3xl'>
+        <h3 className='  my-4 mb-4 flex items-center justify-center text-xl font-bold text-emerald-900  md:text-3xl lg:text-3xl'>
             {children}
         </h3>
     ),
     h4: ({ children }) => (
-        <h4 className=' my-2 text-xl font-bold text-third-color dark:text-sixth-color'>
+        <h4 className=' my-2 text-xl font-bold text-zinc-900 '>
             {children}
         </h4>
     ),
     h5: ({ children }) => (
-        <h5 className=' my-2 text-sm md:text-xl font-bold text-third-color dark:text-sixth-color'>
+        <h5 className=' my-2 text-sm md:text-xl font-bold text-red-800'>
             {children}
         </h5>
     ),
@@ -98,54 +98,54 @@ const renderers = {
         </table>
     ),
     table_head: ({ children }) => (
-        <thead className=' text-center bg-color-primary border'>
+        <thead className=' text-center bg-red-200 border-2 border-red-800'>
             {children}
         </thead>
     ),
     table_cell: ({ children }) => (
-        <td className='  border text-xs px-2'>{children}</td>
+        <td className='   border border-red-800 text-xs px-2'>{children}</td>
     ),
     table_header_cell: ({ children }) => (
-        <th className='  border'>{children}</th>
+        <th className='  border text-green-800'>{children}</th>
     ),
     h6: ({ children }) => (
-        <h6 className=' text-large my-2 font-bold text-third-color dark:text-sixth-color'>
+        <h6 className=' text-large my-2 font-bold text-zinc-900 '>
             {children}
         </h6>
     ),
     p: ({ children }) => (
-        <p className=' my-4  text-xs md:text-lg text-fifth-color  dark:text-sixth-color'>
+        <p className=' my-4  text-xs md:text-lg text-black '>
             {children}
         </p>
     ),
     ul: ({ children }) => (
-        <ul className=' my-4  list-inside list-disc text-lg text-fifth-color  dark:text-sixth-color'>
+        <ul className=' my-4  list-inside list-disc text-lg text-black '>
             {children}
         </ul>
     ),
     ol: ({ children }) => (
-        <ol className=' my-4  list-inside list-decimal text-lg text-fifth-color  dark:text-sixth-color'>
+        <ol className=' my-4  list-inside list-decimal text-lg text-black  '>
             {children}
         </ol>
     ),
     li: ({ children }) => (
-        <li className='  my-2  text-lg text-fifth-color dark:text-sixth-color'>
+        <li className='  my-2  text-lg text-black '>
             {children}
         </li>
     ),
     code: ({ children }) => (
-        <code className=' dark:bg-gray-800  rounded-md bg-base-300 p-2 text-sm dark:text-sixth-color'>
+        <code className='   rounded-md bg-base-300 p-2 text-sm'>
             {children}
         </code>
     ),
     code_block: ({ children }) => (
-        <pre className='dark:bg-gray-800  overflow-y-scroll rounded-md bg-base-300 p-2 text-sm dark:text-sixth-color'>
+        <pre className='  overflow-y-scroll rounded-md bg-slate-300 p-2 text-sm '>
             {children}
         </pre>
     ),
     a: ({ href }) => (
         <a
-            className='link:text-color-primary my-4 text-lg text-link-color underline dark:text-sixth-color'
+            className='link:text-blue-500 my-4 text-lg text-blue-500 underline '
             href={href}
         ></a>
     ),
@@ -241,21 +241,21 @@ export default function Posts({ params }) {
 
             <div className=' flex items-center justify-center mt-8 space-x-8 '>
                 <Button className='w-1/3'>
-                    <Link className='' href='/'>
+                    <Link className='w-full' href='/'>
                         Home
                     </Link>
                 </Button>
                 <Button className='w-1/3'>
-                    <Link className='' href='/blog'>
+                    <Link className='w-full' href='/blog'>
                         Blog
                     </Link>
                 </Button>
             </div>
 
-            <Badge className=' font-bold my-4 w-1/6'>
+            <Badge className=' font-bold my-4 w-fit'>
                 {currentPosts.date}
             </Badge>
-            <RichText
+            <RichText className="w-1/2"
                 content={currentPosts.content.json.children}
                 renderers={renderers}
             />

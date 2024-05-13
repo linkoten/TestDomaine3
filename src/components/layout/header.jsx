@@ -21,7 +21,7 @@ const Header = () => {
 
   return (
     <>
-      <header data-theme='corporate' className=' bg-fifth-color text-primary-content rounded-xl z-10 py-6 m-5 bg-zinc-300 '>
+      <header data-theme='corporate' className=' bg-black rounded-xl z-10 py-6 m-5 text-white md:p-5'>
         <nav className='  container flex items-center justify-between'>
           {/* Logo */}
             <Link

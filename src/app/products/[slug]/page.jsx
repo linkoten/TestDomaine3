@@ -1,22 +1,27 @@
-import { getProductBySlugOrId, getProducts } from '@/lib/swell/products'
+import { getEnglishProductBySlugOrId, getFrenchProductBySlugOrId, getProductBySlugOrId, getProducts } from '@/lib/swell/products'
 import Product from '@/components/product'
 import RelatedProduct from '@/components/relatedProduct'
 
 export const revalidate = 60
 
 
-const Page = async ({ params }) => {
-  const product = await getProductBySlugOrId(params.slug)
-  const products = await getProducts({ page: 1 })
 
-  return( 
+  
+  
+export default async function Page({
+  params: {lang, slug }
+}) {
+  const product = await getProductBySlugOrId(slug)
+  const products = await getProducts({ page: 1 })
+  const frenchProduct = await getFrenchProductBySlugOrId(slug)
+  const englishProduct = await getEnglishProductBySlugOrId(slug)
+return(
   <>
 
-  <Product product={product} />
-  <RelatedProduct product={product} products={products} />
+  <Product frenchProduct={frenchProduct} englishProduct={englishProduct} />
+  <RelatedProduct product={product} products={products}  />
 
   </>
   )
 }
 
-export default Page

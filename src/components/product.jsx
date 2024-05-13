@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useTransition } from 'react'
+import { useState, useTransition, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { useSWRConfig } from 'swr'
@@ -22,6 +22,9 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
+import { Button } from './ui/button'
+import { toast } from "sonner"
+
 
 const details = [
   {
@@ -39,11 +42,29 @@ const details = [
 ]
 
 
-const Product = ({ product }) => {
+const Product = ({ frenchProduct, englishProduct, page}) => {
   const router = useRouter()
   const { mutate } = useSWRConfig()
   const [isPending, startTransition] = useTransition()
   const [loading, setLoading] = useState(false)
+  const [product, setProduct] = useState(frenchProduct)
+  const [currentLanguage, setCurrentLanguage] = useState('fr'); // État pour suivre la langue actuelle
+
+
+  const toggleLanguage = () => {
+    // Toggle entre 'fr' et 'en' en fonction de la valeur actuelle de currentLanguage
+    const newLanguage = currentLanguage === 'fr' ? 'en' : 'fr';
+    setCurrentLanguage(newLanguage);
+  };
+
+  useEffect(() => {
+    // Mettre à jour product en fonction de la langue actuelle
+    if (currentLanguage === 'fr') {
+      setProduct(frenchProduct);
+    } else {
+      setProduct(englishProduct);
+    }
+  }, [currentLanguage, frenchProduct, englishProduct]);
 
   const isMutating = loading || isPending
 
@@ -82,6 +103,15 @@ const Product = ({ product }) => {
     </BreadcrumbItem>
   </BreadcrumbList>
 </Breadcrumb>
+        <div className='flex justify-end'>
+
+<Button
+  onClick={toggleLanguage}
+  className="btn btn-outline mx-12 mt-8 sm:btn-lg"
+>
+  {currentLanguage === 'fr' ? 'Switch to English' : 'Changer en Français'}
+</Button>
+</div>
         <div className='py-18 '>
 
       <div className='container border-b-2 border-zinc-800'>
@@ -185,14 +215,24 @@ const Product = ({ product }) => {
             </div>
 
             <form className='mt-6' onSubmit={handleSubmit}>
-              <div className='sm:flex-col1 mt-10 flex'>
-                <button
+              <div className='sm:flex-col-1 mt-10 flex'>
+                <Button
                   type='submit'
                   disabled={isMutating}
                   className='flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-sky-600 py-3 px-8 text-base font-medium text-white hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 focus:ring-offset-stone-50 disabled:cursor-not-allowed disabled:opacity-50 sm:w-full'
+                  onClick={() =>
+        toast("Le Produit a été ajouté au panier", {
+          description: product.name,
+          action: {
+            label: "Undo",
+            onClick: () => console.log("Undo"),
+          },
+        })
+      }
                 >
                   {isMutating ? <Blinker /> : 'Add to Cart'}
-                </button>
+                  
+                </Button>
               </div>
             </form>
 

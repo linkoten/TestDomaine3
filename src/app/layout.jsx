@@ -3,6 +3,8 @@ import Footer from '@/components/layout/footer'
 import Header from '@/components/layout/header'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { Toaster } from "@/components/ui/sonner"
+
 
 const inter = Inter({
   subsets: ['latin']
@@ -23,6 +25,9 @@ const RootLayout = ({ children }) => {
           <Header />
           <main className='grow'>{children}</main>
           <Footer />
+          <div className='pt-5'></div>
+          <Toaster />
+
       </body>
     </html>
   )

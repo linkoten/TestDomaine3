@@ -13,6 +13,8 @@ import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { removeFromCart } from '@/lib/swell/cart'
 import { useSWRConfig } from 'swr'
+import { toast } from "sonner"
+
 
 const CartSlider = ({ cart, cartIsLoading, open, setCartSliderIsOpen }) => {
   const router = useRouter()
@@ -28,6 +30,13 @@ const CartSlider = ({ cart, cartIsLoading, open, setCartSliderIsOpen }) => {
     mutate('cart')
     startTransition(() => {
       router.refresh()
+    })
+    toast("Le Produit a été supprimé du panier", {
+      
+      action: {
+        label: "Undo",
+        onClick: () => console.log("Undo"),
+      },
     })
   }
 
@@ -126,7 +135,9 @@ const CartSlider = ({ cart, cartIsLoading, open, setCartSliderIsOpen }) => {
                                         <button
                                           type='button'
                                           disabled={isMutating}
-                                          onClick={() => removeItem(item.id)}
+                                          onClick={() => removeItem(item.id)
+                                            }
+                                          
                                           className='font-medium text-pink-600 hover:text-pink-500 disabled:cursor-not-allowed disabled:opacity-50'
                                         >
                                           Remove
