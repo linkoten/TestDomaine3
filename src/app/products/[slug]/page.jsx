@@ -4,7 +4,13 @@ import RelatedProduct from '@/components/relatedProduct'
 
 export const revalidate = 60
 
+export async function generateMetadata({ params: {slug} }) {
+  const product = await getProductBySlugOrId(slug)
 
+  return {
+    title: product.slug,
+  }
+}
 
   
   

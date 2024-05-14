@@ -18,8 +18,6 @@ import {
 } from '@/components/ui/breadcrumb';
 import { Button } from '@/components/ui/button';
 import { Badge } from "@/components/ui/badge"
-import { backInOut, motion, useScroll } from 'framer-motion';
-
 
 
 const hygraph = new GraphQLClient(
@@ -165,7 +163,6 @@ const renderers = {
 export default function Posts({ params }) {
     const [post, setPost] = useState(null); // État pour stocker le post
     const [language, setLanguage] = useState('english'); // État pour suivre la langue actuelle
-    const { scrollYProgress } = useScroll();
 
     useEffect(() => {
         async function fetchPost() {
@@ -195,11 +192,7 @@ export default function Posts({ params }) {
     };
 
     return (
-        
         <div className='mx-6 flex flex-col relative z-10 '>
-        <motion.div initial={{ opacity: 0, scale: 0, x: 200 }}
-                whileInView={{ opacity: 1, scale: 1, x: 0 }}
-                transition={{ duration: 1, type: 'spring' }}>
             <Breadcrumb className='p-8'>
                 <BreadcrumbList>
                     <BreadcrumbItem>
@@ -223,7 +216,6 @@ export default function Posts({ params }) {
                     </BreadcrumbItem>
                 </BreadcrumbList>
             </Breadcrumb>
-            </motion.div>
 
             <Button className='btn btn-outline btn-info mx-6 mb-8'>
                 {currentPosts.tag}{' '}
@@ -263,7 +255,6 @@ export default function Posts({ params }) {
             <Badge className=' font-bold my-4 w-fit'>
                 {currentPosts.date}
             </Badge>
-            
             <RichText className="w-1/2"
                 content={currentPosts.content.json.children}
                 renderers={renderers}

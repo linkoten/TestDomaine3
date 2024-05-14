@@ -1,6 +1,12 @@
 import { getAttributes, getProducts, getProducts2, getProducts3, getProducts4, getProducts5 } from '@/lib/swell/products';
 import Productsfilter from '@/components/products/productsfilter';
 
+
+export const metadata = {
+  title: 'paleolitho/shop',
+  description: 'E-Commerce Shop where you will find a lot of  fossils as Trilobites, Ammonites, Shells from Morroco and France',
+}
+
 export const revalidate = 60
 
 

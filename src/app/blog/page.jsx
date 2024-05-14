@@ -1,6 +1,11 @@
 import GetPosts from '@/components/hygraph/getPosts'
 import { GraphQLClient } from 'graphql-request'
 
+export const metadata = {
+  title: 'paleolitho/blog',
+  description: 'Articles on Trilobites Shells and other fossils from France Morocco and all around the world',
+}
+
 
 const getPosts = async () => {
   const hygraph = new GraphQLClient(
