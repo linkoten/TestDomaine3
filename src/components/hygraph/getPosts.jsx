@@ -23,6 +23,7 @@ import {
     CardHeader,
     CardTitle,
 } from '@/components/ui/card';
+import { backInOut, motion } from 'framer-motion';
 
 export default function Page({ page, posts }) {
     const [filter, setFilter] = useState('');
@@ -56,23 +57,33 @@ export default function Page({ page, posts }) {
         ? currentPosts.filter((post) => post.tag === filter)
         : currentPosts;
 
+    const MotionCard = motion(Card);
+
     return (
         <>
-            <Breadcrumb className='p-8'>
-                <BreadcrumbList>
-                    <BreadcrumbItem>
-                        <BreadcrumbLink href='/'>Home</BreadcrumbLink>
-                    </BreadcrumbItem>
-                    <BreadcrumbSeparator>
-                        <Slash />
-                    </BreadcrumbSeparator>
-                    <BreadcrumbItem>
-                        <BreadcrumbLink href='/blog'>
-                            Blog
-                        </BreadcrumbLink>
-                    </BreadcrumbItem>
-                </BreadcrumbList>
-            </Breadcrumb>
+            <motion.div
+                initial={{ opacity: 0, scale: 0, x: 200 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 1, type: 'spring' }}
+            >
+                <Breadcrumb className='p-8'>
+                    <BreadcrumbList>
+                        <BreadcrumbItem>
+                            <BreadcrumbLink href='/'>
+                                Home
+                            </BreadcrumbLink>
+                        </BreadcrumbItem>
+                        <BreadcrumbSeparator>
+                            <Slash />
+                        </BreadcrumbSeparator>
+                        <BreadcrumbItem>
+                            <BreadcrumbLink href='/blog'>
+                                Blog
+                            </BreadcrumbLink>
+                        </BreadcrumbItem>
+                    </BreadcrumbList>
+                </Breadcrumb>
+            </motion.div>
 
             <div className='h-full py-12'>
                 <div className='container'>
@@ -96,20 +107,35 @@ export default function Page({ page, posts }) {
                                 coverImage,
                                 tag,
                                 excerpt,
+                                i,
                             }) => (
                                 <Link
                                     key={id}
                                     href={`/blog/${slug}`}
                                     className='group'
                                 >
-                                    <Card className="relative">
-                                        <CardHeader >
+                                    <MotionCard
+                                        initial={{
+                                            opacity: 0,
+                                            scale:0,
+                                           
+                                        }}
+                                        animate={{ opacity: 1, scale:1 }}
+                                        transition={{
+                                            duration: 0.5,
+                                            type: 'spring',
+                                            
+                                        }}
+                                        viewport={{ once: true }}
+                                        className='relative'
+                                    >
+                                        <CardHeader>
                                             <CardTitle>
                                                 {title}
                                             </CardTitle>
                                             <CardDescription>
                                                 {coverImage && (
-                                                    <span >
+                                                    <motion.span>
                                                         {coverImage.url && (
                                                             <Image
                                                                 src={
@@ -130,15 +156,14 @@ export default function Page({ page, posts }) {
                                                                 className='h-full w-full object-cover object-center transition-opacity group-hover:opacity-75'
                                                             />
                                                         )}
-                                                    </span>
+                                                    </motion.span>
                                                 )}
                                             </CardDescription>
                                         </CardHeader>
-                                        <CardContent  >
-                                        {excerpt}
-                                            
+                                        <CardContent>
+                                            {excerpt}
                                         </CardContent>
-                                        <CardFooter className="absolute bottom-0 left-0 space-x-2">
+                                        <CardFooter className='absolute bottom-0 left-0 space-x-2'>
                                             <Badge className=' text-[8px] sm:text-xs '>
                                                 {tag}
                                             </Badge>
@@ -146,7 +171,7 @@ export default function Page({ page, posts }) {
                                                 {date}
                                             </Badge>
                                         </CardFooter>
-                                    </Card>
+                                    </MotionCard>
                                 </Link>
                             )
                         )}

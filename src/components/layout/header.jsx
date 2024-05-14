@@ -50,7 +50,7 @@ const Header = () => {
               <ShoppingCartIcon className='h-4 w-4 sm:h-7 sm:w-7  ' />
 
               {cart?.item_quantity ? (
-                <span className='flex  items-center justify-center rounded bg-sky-600 text-2xs font-medium text-white lg:text-xs '>
+                <span className='flex  items-center justify-center rounded text-2xs font-medium text-white lg:text-xs '>
                   {cart?.item_quantity}
                 </span>
               ) : null}
