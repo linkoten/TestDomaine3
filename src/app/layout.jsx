@@ -11,8 +11,8 @@ const inter = Inter({
 })
 
 export const metadata = {
-  title: 'next ecommerce',
-  description: 'Created by Hamed Bahram'
+  title: 'Paleolitho',
+  description: 'Paleolitho is the website of Hervé Catto and Patrick Catto offering the publication of professional articles on fossils as well as the sale of numerous fossils including trilobites, ammonites, shells, teeth...'
 }
 
 const RootLayout = ({ children }) => {

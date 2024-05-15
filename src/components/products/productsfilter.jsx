@@ -460,8 +460,8 @@ export default function ProductsFilter({ products, attributes }) {
                                 >
                                     <div className='transition ease-in-out delay-150 hover:-tranzinc-y-1 hover:scale-110 duration-300 hover:bg-zinc-50 hover:ring-blue-600 hover:ring-2 rounded-lg'>
                                         <motion.div
-                                            initial={{ opacity: 0, x:-200 }}
-                                            animate={{opacity: 1, x:0}}
+                                            initial={{ opacity: 0 }}
+                                            animate={{opacity: 1}}
                                             transition={{
                                                 duration: 0.1,
                                                 type: 'spring',
